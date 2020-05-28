@@ -1,0 +1,20 @@
+##### The following arguments need to be changed
+#------------------------------------------------
+### Path to RNA-Seq aligned BAM
+BAM=/path/to/BAM/tophat_sample/sample_sorted.bam 
+
+## Path to directory containing the 3'UTR bed files per gene
+3UTR_BED_DIR=/apth/to/3UTR/BED/files/
+
+## Path for results
+OUTPUT_DIR=/path/to/save/output/fasta/files/
+
+## Name of sample analyzed
+SAMPLE_NAME=sample
+
+## Path to tools
+SAMTOOLS=/path/to/samtools/install/
+TOPHAT=/path/to/tophat/install/
+
+## Provide colon-seperated list of genes of interest
+GENES=WAC:WAPAL:WARS:WARS2:WAS:WASF1:WASF2:WASF3:WASH4P:WASL:WBP1:WBP11:WBP1L:WBP2:WBP2NL:WBP4

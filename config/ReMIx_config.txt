@@ -1,0 +1,36 @@
+##### The following arguments need to be changed
+#------------------------------------------------
+### Disease Subtype, in this example breast cancer subtypes are provided: e.g. TN, ER or HER2
+SUBTYPE=TN
+
+## Path to input directory. This directory is expected to contain a file with sample names for those that have paired tumor and normal-adjacent data. Please name this file as '${subtype}_paired_Samples', where ${subtype} is the first variable provided in this configuration file. Script assumes this dir also contains per sample dirs for default FIMO output.
+# Here is an example format for this file:
+#TCGA-BH-A0B3-01A-11R-A056-07    TCGA-BH-A0B3-01A-11R-A056-07#TN_Tumor
+#TCGA-BH-A0B3-11B-21R-A089-07    TCGA-BH-A0B3-11B-21R-A089-07#TN_Normal
+#TCGA-BH-A0BW-01A-11R-A115-07    TCGA-BH-A0BW-01A-11R-A115-07#TN_Tumor
+#TCGA-BH-A0BW-11A-12R-A115-07    TCGA-BH-A0BW-11A-12R-A115-07#TN_Normal
+
+## Please also include a file named '${subtype}_paired_Samples_flagstat' that contains the total number of sequenced reads per tumor and normal-adjacent sample. Here is an example format for this file:
+#TCGA-BH-A0B3-01A-11R-A056-07.TN_Tumor   164079925
+#TCGA-BH-A0B3-11B-21R-A089-07.TN_Normal  164452329
+#TCGA-BH-A0BW-01A-11R-A115-07.TN_Tumor   150883514
+#TCGA-BH-A0BW-11A-12R-A115-07.TN_Normal  144773285
+
+INPUT_DIR=/path/to/directory/containing/folder/named/at/tumor-normal-pair/level/per/sample
+
+## Path to fasta format files of reads mapped to individual genes of interest
+PER_GENE_MAPPED_FASTA=/path/to/SUBTYPE_folder/that/contains/sample_folder/with/fasta/of/reads/mapped/to/3UTR/per_gene/
+
+## Path to MRE MEME format
+MEME=/path/to/MEME/format/files/
+
+## Path for results
+OUTPUT_DIR=/path/to/ReMIx/results/
+
+## Path to scripts
+SCRIPT_PATH=/path/to/where/ReMIx/scripts/are/located/
+
+## Reference files
+LOOK_UP_TABLE=/path/to/TargetScan7.0.Human.PredTargets.ConsSites.look_up_table.txt
+GENES=WAC:WAPAL:WARS:WARS2:WAS:WASF1:WASF2:WASF3:WASH4P:WASL:WBP1:WBP11:WBP1L:WBP2:WBP2NL:WBP4
+UTR_LENGTHS=3506:2287:1087:1695:265:703:3954:3103:338:2744:432:3483:2933:699:1294:1741

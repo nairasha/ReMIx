@@ -1,0 +1,47 @@
+Prerequisites
+-------------
+
+1. In order to run ReMIx, reads aligned to 3'UTR of genes of interest 
+	or all genes of the transcriptome) for individual samples are 
+	equired to be available in FASTA format.
+
+    For this, use the 3'UTR bed files located in the 'ref_files' 
+	directory. Obtain the RNA-Seq aligned BAM files (Tophat preferred)
+	for the samples of interest. Prepare the configuration file that
+	contains corresponding paths as showed in the example config
+	'bam_to_fasta.config.txt' that is included with the source code.
+	Finally, submit the following command on an Open Grid Engine 
+	compute cluster (note N below indicates the number of genes for 
+	which the analysis is run - N would be 16 if genes listed in the 
+	example config are used).
+	Please provide the complete path to the configuration file while
+	running the command:
+		$ qsub -V -wd /dir/for/logs -m ae -M your@email -l h_vmem=6G -l h_stack=10M -q provide_queue -t 1-N ./generate_fasta_from_bam.sh `pwd`/bam_to_fasta.config.txt
+
+
+
+
+2. Please have the following perl modules installed and ready to use 
+	before proceeding to the next step (Running ReMIx).
+	Statistics::PointEstimation
+	Statistics::TTest
+	Statistics::Basic
+
+
+Running ReMIx
+-----------------
+
+To run ReMIx, a configuration file is required. A copy of the 
+config file 'ReMIx_config.txt' is included with the source code. 
+
+Once the config file is created, ReMIx can be invoked using the 
+following command on an Open Grid Engine compute cluster (note 
+N below indicates the number of genes for which the analysis 
+is run - N would be 16 if genes listed in the example config 
+are used).
+Please provide the complete path to the configuration file while 
+running the command.
+	$ qsub -V -wd /dir/for/logs -m ae -M your@email -l h_vmem=6G -l h_stack=10M -q provide_queue -t 1-N ./ReMIx_wrapper.sh `pwd`/ReMIx_config.txt
+
+The ReMIx results will be generated in the output directory that 
+was proivded in the config file. 
