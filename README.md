@@ -7,6 +7,6 @@ The ReMIx approach has been applied to close to 180 breast cancer (BRCA) cases t
 This approach and the corresponding results on TCGA BRCA dataset are available at: [insert link to publication]
 
 ## How to use ReMIx
-Please refer to the README file to obtain information on pre-requisistes as well as on how to run ReMIx.
+Please refer to the README file to obtain information on pre-requisites as well as on how to run ReMIx.
 
 
